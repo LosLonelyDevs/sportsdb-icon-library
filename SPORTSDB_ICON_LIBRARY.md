@@ -1,11 +1,21 @@
 # Populating `sportsdb-icon-library`
 
 Agent guide for expanding <https://github.com/LosLonelyDevs/sportsdb-icon-library> so that
-Playfy Web (this repo) resolves logos from it correctly.
+Playfy Web resolves logos from it correctly.
 
 **Audience:** an AI agent with write access to the icon-library repo.
 **Goal:** add sports / leagues / teams to `catalog.json` + committed PNG assets, using
 field names and values that this app's resolver will actually match.
+
+> ⚠ **Scope caveat added after this document landed in the library repo.** Everything below
+> describes the **Playfy Web** resolver (`src/services/logoResolver.js`) — note that "this
+> repo" throughout the text means Playfy Web, not the icon library you are editing.
+>
+> Playfy Web is **not the only consumer.** At least one other client also reads this catalog
+> from `main` at runtime, and its matcher differs in ways that make some advice here
+> actively unsafe to apply to the shared data — notably comma handling in
+> `strTeamAlternate` (§5) and reliance on `/teams/` **filenames** as match keys (§8).
+> **Read `CLAUDE.md` before editing `catalog.json` or renaming any asset.**
 
 ---
 
@@ -56,11 +66,22 @@ Root:
 | Soccer | MLS, English Premier League, UEFA Champions League, Spanish La Liga, German Bundesliga, Italian Serie A, French Ligue 1, Brazilian Serie A, Mexican Primera League | ~200 |
 | American Football | NFL | 32 |
 | Basketball | NBA | 30 |
-| Ice Hockey | NHL | 31 |
+| Ice Hockey | NHL | 32 |
 
-Total ≈ 289 teams across 12 leagues. Known gaps already recorded in each league's
-`missingTeams` array: `St. Louis CITY SC`, `Union Saint-Gilloise`, `Bodø/Glimt`,
-`1. FC Köln`, `Hamburger SV`, `Querétaro`, `St. Louis Blues`.
+Total 289 teams across 12 leagues. The gaps actually recorded in the shipped
+`catalog.json` `missingTeams` arrays are only these four names:
+
+| League | `missingTeams` |
+|---|---|
+| American Major League Soccer | `St. Louis CITY SC` |
+| English Premier League | `Nottingham Forest` |
+| UEFA Champions League | `Paris Saint-Germain`, `Union Saint-Gilloise` |
+| French Ligue 1 | `Paris Saint-Germain` |
+
+Note that `nottingham-forest.png` and `paris-sg.png` **already exist as committed
+assets** — they are unreferenced by `catalog.json` because the free-tier API failed to
+resolve their metadata, not because artwork is missing. Adding those two entries (with
+real `idTeam` values) is the cheapest coverage win available.
 
 ---
 
@@ -271,6 +292,31 @@ What is **not** free — and is exactly what aliases are for — is any change i
 > (For contrast, the *fuzzy* sources at steps 4–5 do split `strLeagueAlternate` on
 > commas — so comma lists are only harmful here, in the exact-match path.)
 
+> 🚨 **Do not act on the paragraph above by removing commas from `catalog.json`.**
+> Another consumer of this repo *does* split `strTeamAlternate` on commas, and **92 of the
+> 289 team entries carry comma lists** — e.g. `New York City FC` →
+> `"New York City, New York City Football Club, NYCFC"`. Those lists are load-bearing
+> there: flattening them to a single variant would silently drop working aliases from a
+> shipped app to gain nothing but tidiness here.
+>
+> **The agreed resolution is to split on commas in Playfy Web's `logoResolver.js`** — one
+> edit in one app — rather than degrading shared data for both. That converts the 92 lists
+> from inert to useful, gaining Playfy Web **~200 additional exact-match aliases**
+> (`1fckoln`, `afcajax`, `asroma`, `athleticclub`, `nycfc`, …).
+>
+> Two things to know when you make that change:
+>
+> 1. **Bump `LOOKUP_CACHE_VERSION`** (§9), or returning users keep stale `localStorage`
+>    results for 7 days and the change looks like a no-op.
+> 2. **The collision risk has already been removed from the data.** Splitting naively used
+>    to introduce three same-sport ambiguous keys (`bianconeri` → Juventus/Udinese,
+>    `giallorossi` → Roma/Lecce, `aja` → Auxerre/Ajax). Those nicknames have been stripped
+>    from `catalog.json` and are denylisted in the generator, so same-sport cross-team
+>    collisions stay at **1 before and after** splitting (`int` → Inter Milan /
+>    Internacional, pre-existing). Splitting is now collision-neutral.
+>
+> See `CLAUDE.md` for the full cross-consumer picture.
+
 ### Feed vocabulary you are matching against
 
 Names come from live stream feeds (PlayZ, SportzX, LivXow), not from TheSportsDB, so they
@@ -369,6 +415,17 @@ What this means for populating:
   consistent.
 - **Never duplicate a club under every cup it plays in.** It bloats the catalog, and since
   `records.find()` returns the first hit, duplicates make the winner arbitrary.
+
+  > ⚠ **The shipped catalog already violates this rule.** 21 clubs are nested under both
+  > their domestic league *and* `UEFA Champions League` (Arsenal, Chelsea, Liverpool,
+  > Manchester City, Real Madrid, …), each with a byte-identical PNG committed under both
+  > league directories — 29 duplicate file pairs in total. Every duplicate involves UCL; no
+  > other pair of leagues duplicates.
+  >
+  > So this is a rule for *new* work, not a description of current state. Do not "fix" the
+  > existing duplicates by deleting one side: the `/teams/` filenames are a match key for
+  > another consumer (see `CLAUDE.md`), so removing a path that resolver can reach breaks
+  > logos in a shipped app. Deduping requires coordinating both consumers.
 - **Do** still add cup/continental competitions as **league entries** with a badge —
   league lookups are how `UEFA Champions League` gets its own artwork.
 
@@ -492,13 +549,24 @@ existing entries did. Respect its terms of use and keep attribution in the repo 
 
 8. **Validate before committing** (see §10).
 
-A working reference implementation of this whole loop already exists in this repo —
+A working reference implementation of this whole loop already exists —
 `scripts/generate-sportsdb-logo-catalog.mjs`, driven by `scripts/priority-league-seeds.mjs`.
 Read it before writing anything new; it handles the 429 backoff, the persistent lookup
 cache, alias-based team resolution, and the exact slug/path scheme described above. The
 main difference is that it writes `strBadge` as `/sportsdb-logos/...` (a leading-slash web
 path for this app's `public/`), whereas **the icon library must use repo-relative paths
 with no leading slash.**
+
+> ⚠ **A script of that same name in another consumer repo is what actually produced the
+> shipped `catalog.json`** — the current file is byte-identical to a copy deleted from that
+> repo when this one was split out of it. Its output paths are already repo-relative with no
+> leading slash.
+>
+> At least two copies of this generator therefore exist, and they disagree on `strBadge`
+> format. Any regeneration must state which copy was used, or `catalog.json` will silently
+> flip path conventions and break one consumer. Hand-edits here are also overwritten by
+> whichever generator runs next — durable fixes belong in that generator's
+> `priority-league-seeds.mjs`.
 
 ### What belongs in this app instead
 

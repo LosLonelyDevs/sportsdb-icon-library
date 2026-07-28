@@ -809,7 +809,7 @@
             {
               "idTeam": "133676",
               "strTeam": "Juventus",
-              "strTeamAlternate": "Juve, Juventus FC, La Vecchia Signora, The Old Lady, Bianconeri",
+              "strTeamAlternate": "Juve, Juventus FC, La Vecchia Signora, The Old Lady",
               "strTeamShort": "JUV",
               "strLeague": "Italian Serie A",
               "strSport": "Soccer",
@@ -1433,7 +1433,7 @@
             {
               "idTeam": "133676",
               "strTeam": "Juventus",
-              "strTeamAlternate": "Juve, Juventus FC, La Vecchia Signora, The Old Lady, Bianconeri",
+              "strTeamAlternate": "Juve, Juventus FC, La Vecchia Signora, The Old Lady",
               "strTeamShort": "JUV",
               "strLeague": "Italian Serie A",
               "strSport": "Soccer",
@@ -1451,7 +1451,7 @@
             {
               "idTeam": "133678",
               "strTeam": "Lecce",
-              "strTeamAlternate": "US Lecce, Apulia, Giallorossi",
+              "strTeamAlternate": "US Lecce, Apulia",
               "strTeamShort": "",
               "strLeague": "Italian Serie A",
               "strSport": "Soccer",
@@ -1487,7 +1487,7 @@
             {
               "idTeam": "133682",
               "strTeam": "Roma",
-              "strTeamAlternate": "AS Roma, FC Roma, Rome FC, Giallorossi",
+              "strTeamAlternate": "AS Roma, FC Roma, Rome FC",
               "strTeamShort": "ROM",
               "strLeague": "Italian Serie A",
               "strSport": "Soccer",
@@ -1514,7 +1514,7 @@
             {
               "idTeam": "133679",
               "strTeam": "Udinese",
-              "strTeamAlternate": "Udinese Calcio, Bianconeri",
+              "strTeamAlternate": "Udinese Calcio",
               "strTeamShort": "",
               "strLeague": "Italian Serie A",
               "strSport": "Soccer",
@@ -1547,7 +1547,7 @@
             {
               "idTeam": "134788",
               "strTeam": "Auxerre",
-              "strTeamAlternate": "AJ Auxerre, Association de la Jeunesse Auxerroise, AJA",
+              "strTeamAlternate": "AJ Auxerre, Association de la Jeunesse Auxerroise",
               "strTeamShort": "",
               "strLeague": "French Ligue 1",
               "strSport": "Soccer",
