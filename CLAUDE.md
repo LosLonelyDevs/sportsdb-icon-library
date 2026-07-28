@@ -22,49 +22,44 @@ Consumers fetch this repo over raw GitHub at runtime. There is no version, tag, 
 https://raw.githubusercontent.com/LosLonelyDevs/sportsdb-icon-library/main
 ```
 
-## The two consumers
+## More than one consumer reads this catalog
 
-| | Playfy Web | GAYERFy-TV |
+`SPORTSDB_ICON_LIBRARY.md` documents one consumer (a React app, referred to there as Playfy Web). At least one **other** client also fetches this catalog from `main` at runtime, and its matching rules differ. Treat the catalog format as a shared contract, not as that one app's private input.
+
+| | Documented consumer | Second consumer |
 |---|---|---|
-| Stack | React | Kotlin Multiplatform (Android + desktop) |
-| Resolver | `src/services/logoResolver.js` | `shared/src/commonMain/kotlin/tv/gayerfy/shared/logos/team-logos.kt` |
-| Local path | not checked out here | `/home/franco/code/GAYERFy-TV` |
-| Reads | `team` and `league` only | teams only (`/teams/` paths; league badges and sport icons ignored) |
+| Reads | `team` and `league` | teams only (`/teams/` paths; league badges and sport icons ignored) |
 | Match | exact on `compactText()`, sport-gated | exact slug → noise-stripped slug → unique substring |
 | `strTeamAlternate` | whole string, **not** comma-split | **comma-split** |
 | Fallback when missed | bundled catalog → live API → emoji | live TheSportsDB API → sport emoji |
 
-Only GAYERFy-TV is verifiable from this machine; the Playfy Web column is as described by `SPORTSDB_ICON_LIBRARY.md`.
+The second consumer fetches `<base>/catalog.json` once per process, builds a name→path matcher from it, and requests `<base>/<strBadge>` directly. It pins the base URL at build time, so it cannot be redirected quickly if paths move.
 
-### GAYERFy-TV specifics
+## Three traps that follow from having two consumers
 
-Fetches `<base>/catalog.json` once per process, builds a matcher, returns `<base>/<strBadge>` for Coil. The base URL is hardcoded in three places: `androidApp/build.gradle.kts` (`SPORTS_DB_LOGO_LIBRARY_BASE`), `desktopApp/src/jvmMain/kotlin/tv/gayerfy/desktop/TeamLogos.kt`, and test assertions in `shared/src/commonTest/.../team-logo-matcher-test.kt`.
+**1. Comma lists in `strTeamAlternate` are load-bearing.** `SPORTSDB_ICON_LIBRARY.md` §5 says comma lists are useless and to spend the two alias slots carefully — true for the consumer it documents, but the other one splits on commas, and **92 of 289 entries carry comma lists**. Never strip them to satisfy that advice; it degrades a shipped app.
 
-## Three traps unique to the multi-consumer setup
+The agreed fix is the other direction: **split on commas in the documented consumer's resolver** (still pending, and unverified against its source), which gains it ~200 exact-match aliases. Bump its lookup-cache version when doing it, or stale `localStorage` masks the change for 7 days.
 
-**1. Comma lists in `strTeamAlternate` are load-bearing.** `SPORTSDB_ICON_LIBRARY.md` §5 says comma lists are useless and to spend the two alias slots carefully — true for Playfy Web, but GAYERFy-TV splits on commas, and **92 of 289 entries carry comma lists**. Never strip them to satisfy that advice; it degrades a shipped app.
+Groundwork already landed: three ambiguous nicknames that would have made splitting unsafe (`Bianconeri` → Juventus/Udinese, `Giallorossi` → Roma/Lecce, `AJA` → Auxerre/Ajax) are removed from `catalog.json` and denylisted in the generator. Same-sport cross-team collisions are now **1 with or without splitting** (`int` → Inter Milan / Internacional, pre-existing and untouched). Add to that denylist rather than hand-editing if more generic nicknames appear.
 
-The agreed fix is the other direction: **split on commas in Playfy Web's `logoResolver.js`** (still pending — that repo isn't checked out here), which gains it ~200 exact-match aliases. Bump `LOOKUP_CACHE_VERSION` when doing it or stale `localStorage` masks the change for 7 days.
-
-Groundwork already landed: three ambiguous nicknames that would have made splitting unsafe (`Bianconeri` → Juventus/Udinese, `Giallorossi` → Roma/Lecce, `AJA` → Auxerre/Ajax) are removed from `catalog.json` and denylisted via `AMBIGUOUS_ALIASES` in GAYERFy-TV's generator. Same-sport cross-team collisions are now **1 with or without splitting** (`int` → Inter Milan / Internacional, pre-existing and untouched). Add to that denylist rather than hand-editing if more generic nicknames appear.
-
-**2. Filenames are a match key, not just storage.** GAYERFy-TV's matcher re-implements the slug rules in Kotlin and falls back to matching the *filename* when catalog-name lookup misses; filename slugs deliberately **override** catalog aliases on collision. Consequences:
+**2. Filenames are a match key, not just storage.** The second consumer re-implements the slug rules and falls back to matching the *filename* when catalog-name lookup misses; filename slugs deliberately **override** catalog aliases on collision. Consequences:
 
 - Renaming a PNG can change which team resolves even with `catalog.json` updated correctly.
 - Adding a team whose noise-stripped slug is a substring of an existing one can turn a previously unique substring match ambiguous, making a **working** logo vanish. Noise tokens stripped from both sides: `fc`, `cf`, `sc`, `afc`, `ac`, `cd`, `club`, `de`.
 
-**3. `paris-sg.png` must not be deleted.** GAYERFy-TV hardcodes a `builtinAliases` map pointing `"Paris Saint-Germain"` and `"PSG"` at `soccer/french-ligue-1/teams/paris-sg.png` — a path absent from `catalog.json`. Any "remove unreferenced assets" cleanup breaks PSG logos in production.
+**3. `paris-sg.png` must not be deleted.** A consumer hardcodes an alias mapping `"Paris Saint-Germain"` and `"PSG"` to `soccer/french-ligue-1/teams/paris-sg.png` — a path absent from `catalog.json`. Any "remove unreferenced assets" cleanup breaks PSG logos in production.
 
 ## The generator lives elsewhere — hand-edits are temporary
 
-Every PNG and `catalog.json` itself is output of `scripts/generate-sportsdb-logo-catalog.mjs` + `scripts/priority-league-seeds.mjs`. **This repo contains neither.** The current `catalog.json` is byte-identical to the one deleted from GAYERFy-TV in commit `e2d4c96` ("Remove logos") — that commit is the split that created this repo.
+Every PNG and `catalog.json` itself is output of `scripts/generate-sportsdb-logo-catalog.mjs` + `scripts/priority-league-seeds.mjs`, which live in a **consumer repo, not here**. The current `catalog.json` is byte-identical to a copy deleted from that repo when this one was split out of it.
 
-Two copies of that generator now exist (GAYERFy-TV's and the one `SPORTSDB_ICON_LIBRARY.md` §9 describes in Playfy Web), and they **disagree on `strBadge` format**: this repo requires repo-relative paths with no leading slash, while Playfy Web's writes `/sportsdb-logos/...`. Any regeneration must say which copy ran.
+At least two copies of that generator exist, and they **disagree on `strBadge` format**: this repo requires repo-relative paths with no leading slash, while the copy `SPORTSDB_ICON_LIBRARY.md` §9 describes writes `/sportsdb-logos/...` for a web `public/` dir. Any regeneration must say which copy ran.
 
 Practical rules:
 
 - A hand-edit to `catalog.json` **forks it from its generator** and is overwritten by the next regeneration, which rebuilds the file from scratch. Durable fixes go in `priority-league-seeds.mjs` (add an alias to a team's array).
-- GAYERFy-TV's script writes to `assets/sportsdb-logos/`, which no longer exists there and is *not* gitignored — regenerating recreates a full duplicate tree in that repo. Move output here; don't commit it there.
+- At least one copy of the generator writes into its own repo's asset directory, which may not be gitignored there — regenerating can recreate a full duplicate tree in the wrong place. Move output here; don't commit it there.
 - `downloadAsset()` skips files already on disk, so re-running never refreshes existing badges. Delete a PNG to force a re-fetch.
 - Regeneration is slow and network-bound (1.8 s between calls, backoff on 429) and needs `SPORTS_DB_BASE`/`SPORTS_DB_API_KEY`. `missingTeams` entries are free-tier API resolution failures, **not** missing artwork.
 

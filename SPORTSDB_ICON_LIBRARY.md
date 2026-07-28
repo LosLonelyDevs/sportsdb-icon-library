@@ -11,8 +11,8 @@ field names and values that this app's resolver will actually match.
 > describes the **Playfy Web** resolver (`src/services/logoResolver.js`) — note that "this
 > repo" throughout the text means Playfy Web, not the icon library you are editing.
 >
-> Playfy Web is **not the only consumer.** GAYERFy-TV (Kotlin Multiplatform) also reads this
-> catalog from `main` at runtime, and its matcher differs in ways that make some advice here
+> Playfy Web is **not the only consumer.** At least one other client also reads this catalog
+> from `main` at runtime, and its matcher differs in ways that make some advice here
 > actively unsafe to apply to the shared data — notably comma handling in
 > `strTeamAlternate` (§5) and reliance on `/teams/` **filenames** as match keys (§8).
 > **Read `CLAUDE.md` before editing `catalog.json` or renaming any asset.**
@@ -293,8 +293,7 @@ What is **not** free — and is exactly what aliases are for — is any change i
 > commas — so comma lists are only harmful here, in the exact-match path.)
 
 > 🚨 **Do not act on the paragraph above by removing commas from `catalog.json`.**
-> The other consumer of this repo, GAYERFy-TV, *does* split `strTeamAlternate` on commas
-> (`shared/src/commonMain/kotlin/tv/gayerfy/shared/logos/team-logos.kt`), and **92 of the
+> Another consumer of this repo *does* split `strTeamAlternate` on commas, and **92 of the
 > 289 team entries carry comma lists** — e.g. `New York City FC` →
 > `"New York City, New York City Football Club, NYCFC"`. Those lists are load-bearing
 > there: flattening them to a single variant would silently drop working aliases from a
@@ -425,8 +424,8 @@ What this means for populating:
   >
   > So this is a rule for *new* work, not a description of current state. Do not "fix" the
   > existing duplicates by deleting one side: the `/teams/` filenames are a match key for
-  > the GAYERFy-TV consumer (see `CLAUDE.md`), so removing a path that resolver can reach
-  > breaks logos in a shipped app. Deduping requires coordinating both consumers.
+  > another consumer (see `CLAUDE.md`), so removing a path that resolver can reach breaks
+  > logos in a shipped app. Deduping requires coordinating both consumers.
 - **Do** still add cup/continental competitions as **league entries** with a badge —
   league lookups are how `UEFA Champions League` gets its own artwork.
 
@@ -558,15 +557,15 @@ main difference is that it writes `strBadge` as `/sportsdb-logos/...` (a leading
 path for this app's `public/`), whereas **the icon library must use repo-relative paths
 with no leading slash.**
 
-> ⚠ **A script of that same name in GAYERFy-TV is what actually produced the shipped
-> `catalog.json`** — the current file is byte-identical to the one deleted from that repo in
-> its commit `e2d4c96` ("Remove logos"), which is the split that created this repo. Its
-> output paths are already repo-relative with no leading slash.
+> ⚠ **A script of that same name in another consumer repo is what actually produced the
+> shipped `catalog.json`** — the current file is byte-identical to a copy deleted from that
+> repo when this one was split out of it. Its output paths are already repo-relative with no
+> leading slash.
 >
-> Two copies of this generator therefore exist, and they disagree on `strBadge` format. Any
-> regeneration must state which copy was used, or `catalog.json` will silently flip path
-> conventions and break one consumer. Hand-edits here are also overwritten by whichever
-> generator runs next — durable fixes belong in that generator's
+> At least two copies of this generator therefore exist, and they disagree on `strBadge`
+> format. Any regeneration must state which copy was used, or `catalog.json` will silently
+> flip path conventions and break one consumer. Hand-edits here are also overwritten by
+> whichever generator runs next — durable fixes belong in that generator's
 > `priority-league-seeds.mjs`.
 
 ### What belongs in this app instead
