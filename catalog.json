@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-18T06:39:37.995Z",
+  "generatedAt": "2026-09-03T18:45:07.842Z",
   "source": "TheSportsDB + web-curated league seeds",
   "targetLeagues": [
     {
@@ -85,6 +85,20 @@
       "leagueId": "4380",
       "source": "https://www.nhl.com/info/teams/",
       "expectedTeamCount": 32
+    },
+    {
+      "sportName": "Soccer",
+      "leagueName": "FIFA World Cup",
+      "leagueId": "4429",
+      "source": "https://en.wikipedia.org/wiki/FIFA_Men%27s_World_Ranking",
+      "expectedTeamCount": 78
+    },
+    {
+      "sportName": "American Football",
+      "leagueName": "NCAA Division 1",
+      "leagueId": "4479",
+      "source": "https://en.wikipedia.org/wiki/List_of_NCAA_Division_I_FBS_football_programs",
+      "expectedTeamCount": 136
     }
   ],
   "coverage": [
@@ -167,6 +181,22 @@
       "league": "NHL",
       "expected": 32,
       "resolved": 32,
+      "missing": []
+    },
+    {
+      "league": "FIFA World Cup",
+      "expected": 78,
+      "resolved": 75,
+      "missing": [
+        "Georgia",
+        "Jordan",
+        "Northern Ireland"
+      ]
+    },
+    {
+      "league": "NCAA Division 1",
+      "expected": 136,
+      "resolved": 136,
       "missing": []
     }
   ],
@@ -2057,6 +2087,698 @@
               "strBadge": "soccer/mexican-primera-league/teams/toluca.png"
             }
           ]
+        },
+        {
+          "idLeague": "4429",
+          "strLeague": "FIFA World Cup",
+          "strLeagueAlternate": "World Cup",
+          "strSport": "Soccer",
+          "strBadge": "soccer/fifa-world-cup/league-badge.png",
+          "source": "https://en.wikipedia.org/wiki/FIFA_Men%27s_World_Ranking",
+          "expectedTeamCount": 78,
+          "resolvedTeamCount": 75,
+          "missingTeams": [
+            "Georgia",
+            "Jordan",
+            "Northern Ireland"
+          ],
+          "teams": [
+            {
+              "idTeam": "134509",
+              "strTeam": "Argentina",
+              "strTeamAlternate": "",
+              "strTeamShort": "ARG",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/argentina.png"
+            },
+            {
+              "idTeam": "133913",
+              "strTeam": "France",
+              "strTeamAlternate": "",
+              "strTeamShort": "FRA",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/france.png"
+            },
+            {
+              "idTeam": "133909",
+              "strTeam": "Spain",
+              "strTeamAlternate": "",
+              "strTeamShort": "SPA",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/spain.png"
+            },
+            {
+              "idTeam": "133914",
+              "strTeam": "England",
+              "strTeamAlternate": "",
+              "strTeamShort": "ENG",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/england.png"
+            },
+            {
+              "idTeam": "134496",
+              "strTeam": "Brazil",
+              "strTeamAlternate": "",
+              "strTeamShort": "BRA",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/brazil.png"
+            },
+            {
+              "idTeam": "133908",
+              "strTeam": "Portugal",
+              "strTeamAlternate": "",
+              "strTeamShort": "POR",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/portugal.png"
+            },
+            {
+              "idTeam": "133905",
+              "strTeam": "Netherlands",
+              "strTeamAlternate": "Holland",
+              "strTeamShort": "NET",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/netherlands.png"
+            },
+            {
+              "idTeam": "134515",
+              "strTeam": "Belgium",
+              "strTeamAlternate": "",
+              "strTeamShort": "BEL",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/belgium.png"
+            },
+            {
+              "idTeam": "133907",
+              "strTeam": "Germany",
+              "strTeamAlternate": "",
+              "strTeamShort": "GER",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/germany.png"
+            },
+            {
+              "idTeam": "133912",
+              "strTeam": "Croatia",
+              "strTeamAlternate": "",
+              "strTeamShort": "CRO",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/croatia.png"
+            },
+            {
+              "idTeam": "136139",
+              "strTeam": "Morocco",
+              "strTeamAlternate": "",
+              "strTeamShort": "MOR",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/morocco.png"
+            },
+            {
+              "idTeam": "134504",
+              "strTeam": "Uruguay",
+              "strTeamAlternate": "",
+              "strTeamShort": "URU",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/uruguay.png"
+            },
+            {
+              "idTeam": "134501",
+              "strTeam": "Colombia",
+              "strTeamAlternate": "",
+              "strTeamShort": "COL",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/colombia.png"
+            },
+            {
+              "idTeam": "134514",
+              "strTeam": "USA",
+              "strTeamAlternate": "United States, United States of America, USMNT",
+              "strTeamShort": "USA",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/usa.png"
+            },
+            {
+              "idTeam": "134497",
+              "strTeam": "Mexico",
+              "strTeamAlternate": "",
+              "strTeamShort": "MEX",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/mexico.png"
+            },
+            {
+              "idTeam": "134506",
+              "strTeam": "Switzerland",
+              "strTeamAlternate": "",
+              "strTeamShort": "SWI",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/switzerland.png"
+            },
+            {
+              "idTeam": "134503",
+              "strTeam": "Japan",
+              "strTeamAlternate": "",
+              "strTeamShort": "JPN",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/japan.png"
+            },
+            {
+              "idTeam": "136143",
+              "strTeam": "Senegal",
+              "strTeamAlternate": "",
+              "strTeamShort": "SEN",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/senegal.png"
+            },
+            {
+              "idTeam": "134511",
+              "strTeam": "Iran",
+              "strTeamAlternate": "IR Iran",
+              "strTeamShort": "IRA",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/iran.png"
+            },
+            {
+              "idTeam": "134517",
+              "strTeam": "South Korea",
+              "strTeamAlternate": "Korea Republic, Korea",
+              "strTeamShort": "SKO",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/south-korea.png"
+            },
+            {
+              "idTeam": "135986",
+              "strTeam": "Austria",
+              "strTeamAlternate": "",
+              "strTeamShort": "AST",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/austria.png"
+            },
+            {
+              "idTeam": "134500",
+              "strTeam": "Australia",
+              "strTeamAlternate": "",
+              "strTeamShort": "AUS",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/australia.png"
+            },
+            {
+              "idTeam": "135985",
+              "strTeam": "Turkey",
+              "strTeamAlternate": "Turkiye",
+              "strTeamShort": "TUR",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/turkey.png"
+            },
+            {
+              "idTeam": "133916",
+              "strTeam": "Sweden",
+              "strTeamAlternate": "",
+              "strTeamShort": "SWE",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/sweden.png"
+            },
+            {
+              "idTeam": "140073",
+              "strTeam": "Canada",
+              "strTeamAlternate": "",
+              "strTeamShort": "CAN",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/canada.png"
+            },
+            {
+              "idTeam": "136138",
+              "strTeam": "Egypt",
+              "strTeamAlternate": "",
+              "strTeamShort": "EGY",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/egypt.png"
+            },
+            {
+              "idTeam": "133904",
+              "strTeam": "Czech Republic",
+              "strTeamAlternate": "Czechia",
+              "strTeamShort": "CZE",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/czech-republic.png"
+            },
+            {
+              "idTeam": "136450",
+              "strTeam": "Scotland",
+              "strTeamAlternate": "",
+              "strTeamShort": "SCO",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/scotland.png"
+            },
+            {
+              "idTeam": "134507",
+              "strTeam": "Ecuador",
+              "strTeamAlternate": "",
+              "strTeamShort": "ECU",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/ecuador.png"
+            },
+            {
+              "idTeam": "136471",
+              "strTeam": "Paraguay",
+              "strTeamAlternate": "",
+              "strTeamShort": "PAR",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/paraguay.png"
+            },
+            {
+              "idTeam": "134502",
+              "strTeam": "Ivory Coast",
+              "strTeamAlternate": "Cote d'Ivoire",
+              "strTeamShort": "IVO",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/ivory-coast.png"
+            },
+            {
+              "idTeam": "136142",
+              "strTeam": "Tunisia",
+              "strTeamAlternate": "",
+              "strTeamShort": "TUN",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/tunisia.png"
+            },
+            {
+              "idTeam": "134516",
+              "strTeam": "Algeria",
+              "strTeamAlternate": "",
+              "strTeamShort": "ALG",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/algeria.png"
+            },
+            {
+              "idTeam": "136141",
+              "strTeam": "Panama",
+              "strTeamAlternate": "",
+              "strTeamShort": "PAN",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/panama.png"
+            },
+            {
+              "idTeam": "136472",
+              "strTeam": "Qatar",
+              "strTeamAlternate": "",
+              "strTeamShort": "QAT",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/qatar.png"
+            },
+            {
+              "idTeam": "136137",
+              "strTeam": "Saudi Arabia",
+              "strTeamAlternate": "KSA",
+              "strTeamShort": "SAU",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/saudi-arabia.png"
+            },
+            {
+              "idTeam": "140148",
+              "strTeam": "Iraq",
+              "strTeamAlternate": "",
+              "strTeamShort": "",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/iraq.png"
+            },
+            {
+              "idTeam": "140151",
+              "strTeam": "Uzbekistan",
+              "strTeamAlternate": "",
+              "strTeamShort": "",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/uzbekistan.png"
+            },
+            {
+              "idTeam": "134513",
+              "strTeam": "Ghana",
+              "strTeamAlternate": "",
+              "strTeamShort": "GHA",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/ghana.png"
+            },
+            {
+              "idTeam": "137449",
+              "strTeam": "New Zealand",
+              "strTeamAlternate": "",
+              "strTeamShort": "NZL",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/new-zealand.png"
+            },
+            {
+              "idTeam": "136477",
+              "strTeam": "Cape Verde",
+              "strTeamAlternate": "Cabo Verde",
+              "strTeamShort": "CPV",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/cape-verde.png"
+            },
+            {
+              "idTeam": "140271",
+              "strTeam": "Curaçao",
+              "strTeamAlternate": "",
+              "strTeamShort": "CUW",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/curacao.png"
+            },
+            {
+              "idTeam": "140175",
+              "strTeam": "Haiti",
+              "strTeamAlternate": "",
+              "strTeamShort": "",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/haiti.png"
+            },
+            {
+              "idTeam": "136482",
+              "strTeam": "South Africa",
+              "strTeamAlternate": "",
+              "strTeamShort": "SAF",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/south-africa.png"
+            },
+            {
+              "idTeam": "136475",
+              "strTeam": "DR Congo",
+              "strTeamAlternate": "Congo DR, Democratic Republic of the Congo",
+              "strTeamShort": "DRC",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/dr-congo.png"
+            },
+            {
+              "idTeam": "133910",
+              "strTeam": "Italy",
+              "strTeamAlternate": "",
+              "strTeamShort": "ITA",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/italy.png"
+            },
+            {
+              "idTeam": "133906",
+              "strTeam": "Denmark",
+              "strTeamAlternate": "",
+              "strTeamShort": "DEN",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/denmark.png"
+            },
+            {
+              "idTeam": "133915",
+              "strTeam": "Ukraine",
+              "strTeamAlternate": "",
+              "strTeamShort": "UKR",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/ukraine.png"
+            },
+            {
+              "idTeam": "135982",
+              "strTeam": "Wales",
+              "strTeamAlternate": "",
+              "strTeamShort": "WAL",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/wales.png"
+            },
+            {
+              "idTeam": "136140",
+              "strTeam": "Serbia",
+              "strTeamAlternate": "",
+              "strTeamShort": "SER",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/serbia.png"
+            },
+            {
+              "idTeam": "133901",
+              "strTeam": "Poland",
+              "strTeamAlternate": "",
+              "strTeamShort": "POL",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/poland.png"
+            },
+            {
+              "idTeam": "135987",
+              "strTeam": "Hungary",
+              "strTeamAlternate": "",
+              "strTeamShort": "HUN",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/hungary.png"
+            },
+            {
+              "idTeam": "136516",
+              "strTeam": "Norway",
+              "strTeamAlternate": "",
+              "strTeamShort": "NOR",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/norway.png"
+            },
+            {
+              "idTeam": "133902",
+              "strTeam": "Greece",
+              "strTeamAlternate": "",
+              "strTeamShort": "GRE",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/greece.png"
+            },
+            {
+              "idTeam": "136162",
+              "strTeam": "Peru",
+              "strTeamAlternate": "",
+              "strTeamShort": "PER",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/peru.png"
+            },
+            {
+              "idTeam": "134499",
+              "strTeam": "Chile",
+              "strTeamAlternate": "",
+              "strTeamShort": "CHI",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/chile.png"
+            },
+            {
+              "idTeam": "136473",
+              "strTeam": "Venezuela",
+              "strTeamAlternate": "",
+              "strTeamShort": "VEN",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/venezuela.png"
+            },
+            {
+              "idTeam": "134512",
+              "strTeam": "Nigeria",
+              "strTeamAlternate": "",
+              "strTeamShort": "NIG",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/nigeria.png"
+            },
+            {
+              "idTeam": "134498",
+              "strTeam": "Cameroon",
+              "strTeamAlternate": "",
+              "strTeamShort": "CAM",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/cameroon.png"
+            },
+            {
+              "idTeam": "134580",
+              "strTeam": "Mali",
+              "strTeamAlternate": "",
+              "strTeamShort": "",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/mali.png"
+            },
+            {
+              "idTeam": "134505",
+              "strTeam": "Costa Rica",
+              "strTeamAlternate": "",
+              "strTeamShort": "COS",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/costa-rica.png"
+            },
+            {
+              "idTeam": "135983",
+              "strTeam": "Slovakia",
+              "strTeamAlternate": "",
+              "strTeamShort": "SLO",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/slovakia.png"
+            },
+            {
+              "idTeam": "136456",
+              "strTeam": "Slovenia",
+              "strTeamAlternate": "",
+              "strTeamShort": "SVN",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/slovenia.png"
+            },
+            {
+              "idTeam": "135980",
+              "strTeam": "Romania",
+              "strTeamAlternate": "",
+              "strTeamShort": "ROM",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/romania.png"
+            },
+            {
+              "idTeam": "135981",
+              "strTeam": "Albania",
+              "strTeamAlternate": "",
+              "strTeamShort": "ALB",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/albania.png"
+            },
+            {
+              "idTeam": "134508",
+              "strTeam": "Honduras",
+              "strTeamAlternate": "",
+              "strTeamShort": "HON",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/honduras.png"
+            },
+            {
+              "idTeam": "140037",
+              "strTeam": "Jamaica",
+              "strTeamAlternate": "",
+              "strTeamShort": "JAM",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/jamaica.png"
+            },
+            {
+              "idTeam": "136468",
+              "strTeam": "Finland",
+              "strTeamAlternate": "",
+              "strTeamShort": "FIN",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/finland.png"
+            },
+            {
+              "idTeam": "135988",
+              "strTeam": "Iceland",
+              "strTeamAlternate": "",
+              "strTeamShort": "ICE",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/iceland.png"
+            },
+            {
+              "idTeam": "133903",
+              "strTeam": "Russia",
+              "strTeamAlternate": "Russian Federation",
+              "strTeamShort": "RUS",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/russia.png"
+            },
+            {
+              "idTeam": "136470",
+              "strTeam": "Bolivia",
+              "strTeamAlternate": "",
+              "strTeamShort": "",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/bolivia.png"
+            },
+            {
+              "idTeam": "135931",
+              "strTeam": "Israel",
+              "strTeamAlternate": "",
+              "strTeamShort": "",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/israel.png"
+            },
+            {
+              "idTeam": "140248",
+              "strTeam": "New Caledonia",
+              "strTeamAlternate": "",
+              "strTeamShort": "",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/new-caledonia.png"
+            },
+            {
+              "idTeam": "133911",
+              "strTeam": "Ireland",
+              "strTeamAlternate": "Ireland",
+              "strTeamShort": "IRE",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/ireland.png"
+            },
+            {
+              "idTeam": "134510",
+              "strTeam": "Bosnia-Herzegovina",
+              "strTeamAlternate": "Bosnia and Herzegovina, Bosnia",
+              "strTeamShort": "BOS",
+              "strLeague": "FIFA World Cup",
+              "strSport": "Soccer",
+              "strBadge": "soccer/fifa-world-cup/teams/bosnia-herzegovina.png"
+            }
+          ]
         }
       ]
     },
@@ -2364,6 +3086,1243 @@
               "strLeague": "NFL",
               "strSport": "American Football",
               "strBadge": "american-football/nfl/teams/washington-commanders.png"
+            }
+          ]
+        },
+        {
+          "idLeague": "4479",
+          "strLeague": "NCAA Division 1",
+          "strLeagueAlternate": "NCAAF, College Football, NCAA Division 1 Football, NCAA Football",
+          "strSport": "American Football",
+          "strBadge": "american-football/ncaa-division-1/league-badge.png",
+          "source": "https://en.wikipedia.org/wiki/List_of_NCAA_Division_I_FBS_football_programs",
+          "expectedTeamCount": 136,
+          "resolvedTeamCount": 136,
+          "missingTeams": [],
+          "teams": [
+            {
+              "idTeam": "136168",
+              "strTeam": "Alabama",
+              "strTeamAlternate": "Alabama Crimson Tide",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/alabama.png"
+            },
+            {
+              "idTeam": "136173",
+              "strTeam": "Arkansas",
+              "strTeamAlternate": "Arkansas Razorbacks",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/arkansas.png"
+            },
+            {
+              "idTeam": "136864",
+              "strTeam": "Auburn",
+              "strTeamAlternate": "Auburn Tigers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/auburn.png"
+            },
+            {
+              "idTeam": "136887",
+              "strTeam": "Florida",
+              "strTeamAlternate": "Florida Gators",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/florida.png"
+            },
+            {
+              "idTeam": "137104",
+              "strTeam": "Georgia",
+              "strTeamAlternate": "Georgia Bulldogs",
+              "strTeamShort": "UGA",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/georgia.png"
+            },
+            {
+              "idTeam": "136903",
+              "strTeam": "Kentucky",
+              "strTeamAlternate": "Kentucky Wildcats",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/kentucky.png"
+            },
+            {
+              "idTeam": "136905",
+              "strTeam": "LSU",
+              "strTeamAlternate": "LSU Tigers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/lsu.png"
+            },
+            {
+              "idTeam": "136920",
+              "strTeam": "Mississippi State",
+              "strTeamAlternate": "Mississippi State Bulldogs",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/mississippi-state.png"
+            },
+            {
+              "idTeam": "136919",
+              "strTeam": "Ole Miss",
+              "strTeamAlternate": "Ole Miss Rebels, Mississippi",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/ole-miss.png"
+            },
+            {
+              "idTeam": "136957",
+              "strTeam": "Tennessee",
+              "strTeamAlternate": "Tennessee Volunteers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/tennessee.png"
+            },
+            {
+              "idTeam": "136896",
+              "strTeam": "Illinois",
+              "strTeamAlternate": "Illinois Fighting Illini",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/illinois.png"
+            },
+            {
+              "idTeam": "136897",
+              "strTeam": "Indiana",
+              "strTeamAlternate": "Indiana Hoosiers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/indiana.png"
+            },
+            {
+              "idTeam": "136898",
+              "strTeam": "Iowa",
+              "strTeamAlternate": "Iowa Hawkeyes",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/iowa.png"
+            },
+            {
+              "idTeam": "136910",
+              "strTeam": "Maryland",
+              "strTeamAlternate": "Maryland Terrapins",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/maryland.png"
+            },
+            {
+              "idTeam": "136915",
+              "strTeam": "Michigan",
+              "strTeamAlternate": "Michigan Wolverines",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/michigan.png"
+            },
+            {
+              "idTeam": "136918",
+              "strTeam": "Minnesota",
+              "strTeamAlternate": "Minnesota Golden Gophers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/minnesota.png"
+            },
+            {
+              "idTeam": "136923",
+              "strTeam": "Nebraska",
+              "strTeamAlternate": "Nebraska Cornhuskers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/nebraska.png"
+            },
+            {
+              "idTeam": "136932",
+              "strTeam": "Northwestern",
+              "strTeamAlternate": "Northwestern Wildcats",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/northwestern.png"
+            },
+            {
+              "idTeam": "136938",
+              "strTeam": "Oregon",
+              "strTeamAlternate": "Oregon Ducks",
+              "strTeamShort": "ORE",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/oregon.png"
+            },
+            {
+              "idTeam": "136942",
+              "strTeam": "Purdue",
+              "strTeamAlternate": "Purdue Boilermakers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/purdue.png"
+            },
+            {
+              "idTeam": "136944",
+              "strTeam": "Rutgers",
+              "strTeamAlternate": "Rutgers Scarlet Knights",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/rutgers.png"
+            },
+            {
+              "idTeam": "136873",
+              "strTeam": "UCLA",
+              "strTeamAlternate": "UCLA Bruins",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/ucla.png"
+            },
+            {
+              "idTeam": "136950",
+              "strTeam": "USC",
+              "strTeamAlternate": "USC Trojans",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/usc.png"
+            },
+            {
+              "idTeam": "136974",
+              "strTeam": "Washington",
+              "strTeamAlternate": "Washington Huskies",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/washington.png"
+            },
+            {
+              "idTeam": "136872",
+              "strTeam": "California",
+              "strTeamAlternate": "California Golden Bears, Cal",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/california.png"
+            },
+            {
+              "idTeam": "136878",
+              "strTeam": "Clemson",
+              "strTeamAlternate": "Clemson Tigers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/clemson.png"
+            },
+            {
+              "idTeam": "136883",
+              "strTeam": "Duke",
+              "strTeamAlternate": "Duke Blue Devils",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/duke.png"
+            },
+            {
+              "idTeam": "136889",
+              "strTeam": "Florida State",
+              "strTeamAlternate": "Florida State Seminoles",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/florida-state.png"
+            },
+            {
+              "idTeam": "136893",
+              "strTeam": "Georgia Tech",
+              "strTeamAlternate": "Georgia Tech Yellow Jackets",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/georgia-tech.png"
+            },
+            {
+              "idTeam": "136908",
+              "strTeam": "Louisville",
+              "strTeamAlternate": "Louisville Cardinals",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/louisville.png"
+            },
+            {
+              "idTeam": "136929",
+              "strTeam": "NC State",
+              "strTeamAlternate": "NC State Wolfpack, North Carolina State",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/nc-state.png"
+            },
+            {
+              "idTeam": "136941",
+              "strTeam": "Pittsburgh",
+              "strTeamAlternate": "Pittsburgh Panthers, Pitt",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/pittsburgh.png"
+            },
+            {
+              "idTeam": "136951",
+              "strTeam": "SMU",
+              "strTeamAlternate": "SMU Mustangs",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/smu.png"
+            },
+            {
+              "idTeam": "136953",
+              "strTeam": "Stanford",
+              "strTeamAlternate": "Stanford Cardinal",
+              "strTeamShort": "STAN",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/stanford.png"
+            },
+            {
+              "idTeam": "136971",
+              "strTeam": "Virginia",
+              "strTeamAlternate": "Virginia Cavaliers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/virginia.png"
+            },
+            {
+              "idTeam": "136972",
+              "strTeam": "Virginia Tech",
+              "strTeamAlternate": "Virginia Tech Hokies",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/virginia-tech.png"
+            },
+            {
+              "idTeam": "136973",
+              "strTeam": "Wake Forest",
+              "strTeamAlternate": "Wake Forest Demon Deacons",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/wake-forest.png"
+            },
+            {
+              "idTeam": "136171",
+              "strTeam": "Arizona",
+              "strTeamAlternate": "Arizona Wildcats",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/arizona.png"
+            },
+            {
+              "idTeam": "136866",
+              "strTeam": "Baylor",
+              "strTeamAlternate": "Baylor Bears",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/baylor.png"
+            },
+            {
+              "idTeam": "136871",
+              "strTeam": "BYU",
+              "strTeamAlternate": "BYU Cougars",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/byu.png"
+            },
+            {
+              "idTeam": "136877",
+              "strTeam": "Cincinnati",
+              "strTeamAlternate": "Cincinnati Bearcats",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/cincinnati.png"
+            },
+            {
+              "idTeam": "136880",
+              "strTeam": "Colorado",
+              "strTeamAlternate": "Colorado Buffaloes",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/colorado.png"
+            },
+            {
+              "idTeam": "136895",
+              "strTeam": "Houston",
+              "strTeamAlternate": "Houston Cougars",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/houston.png"
+            },
+            {
+              "idTeam": "136899",
+              "strTeam": "Iowa State",
+              "strTeamAlternate": "Iowa State Cyclones",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/iowa-state.png"
+            },
+            {
+              "idTeam": "136900",
+              "strTeam": "Kansas",
+              "strTeamAlternate": "Kansas Jayhawks",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/kansas.png"
+            },
+            {
+              "idTeam": "136901",
+              "strTeam": "Kansas State",
+              "strTeamAlternate": "Kansas State Wildcats",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/kansas-state.png"
+            },
+            {
+              "idTeam": "136936",
+              "strTeam": "Oklahoma State",
+              "strTeamAlternate": "Oklahoma State Cowboys",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/oklahoma-state.png"
+            },
+            {
+              "idTeam": "136955",
+              "strTeam": "TCU",
+              "strTeamAlternate": "TCU Horned Frogs",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/tcu.png"
+            },
+            {
+              "idTeam": "136874",
+              "strTeam": "UCF",
+              "strTeamAlternate": "UCF Knights",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/ucf.png"
+            },
+            {
+              "idTeam": "136968",
+              "strTeam": "Utah",
+              "strTeamAlternate": "Utah Utes",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/utah.png"
+            },
+            {
+              "idTeam": "136976",
+              "strTeam": "West Virginia",
+              "strTeamAlternate": "West Virginia Mountaineers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/west-virginia.png"
+            },
+            {
+              "idTeam": "136939",
+              "strTeam": "Oregon State",
+              "strTeamAlternate": "Oregon State Beavers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/oregon-state.png"
+            },
+            {
+              "idTeam": "136975",
+              "strTeam": "Washington State",
+              "strTeamAlternate": "Washington State Cougars",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/washington-state.png"
+            },
+            {
+              "idTeam": "136881",
+              "strTeam": "Colorado State",
+              "strTeamAlternate": "Colorado State Rams",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/colorado-state.png"
+            },
+            {
+              "idTeam": "136890",
+              "strTeam": "Fresno State",
+              "strTeamAlternate": "Fresno State Bulldogs",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/fresno-state.png"
+            },
+            {
+              "idTeam": "136945",
+              "strTeam": "San Diego State",
+              "strTeamAlternate": "San Diego State Aztecs",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/san-diego-state.png"
+            },
+            {
+              "idTeam": "136969",
+              "strTeam": "Utah State",
+              "strTeamAlternate": "Utah State Aggies",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/utah-state.png"
+            },
+            {
+              "idTeam": "136960",
+              "strTeam": "Texas State",
+              "strTeamAlternate": "Texas State Bobcats",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/texas-state.png"
+            },
+            {
+              "idTeam": "136175",
+              "strTeam": "Army",
+              "strTeamAlternate": "Army Black Knights",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/army.png"
+            },
+            {
+              "idTeam": "136876",
+              "strTeam": "Charlotte",
+              "strTeamAlternate": "Charlotte 49ers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/charlotte.png"
+            },
+            {
+              "idTeam": "136885",
+              "strTeam": "East Carolina",
+              "strTeamAlternate": "East Carolina Pirates",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/east-carolina.png"
+            },
+            {
+              "idTeam": "136888",
+              "strTeam": "Florida Atlantic",
+              "strTeamAlternate": "Florida Atlantic Owls",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/florida-atlantic.png"
+            },
+            {
+              "idTeam": "136912",
+              "strTeam": "Memphis",
+              "strTeamAlternate": "Memphis Tigers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/memphis.png"
+            },
+            {
+              "idTeam": "136922",
+              "strTeam": "Navy",
+              "strTeamAlternate": "Navy Midshipmen",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/navy.png"
+            },
+            {
+              "idTeam": "136930",
+              "strTeam": "North Texas",
+              "strTeamAlternate": "North Texas Mean Green",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/north-texas.png"
+            },
+            {
+              "idTeam": "136943",
+              "strTeam": "Rice",
+              "strTeamAlternate": "Rice Owls",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/rice.png"
+            },
+            {
+              "idTeam": "136949",
+              "strTeam": "South Florida",
+              "strTeamAlternate": "South Florida Bulls",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/south-florida.png"
+            },
+            {
+              "idTeam": "136956",
+              "strTeam": "Temple",
+              "strTeamAlternate": "Temple Owls",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/temple.png"
+            },
+            {
+              "idTeam": "136966",
+              "strTeam": "Tulane",
+              "strTeamAlternate": "Tulane Green Wave",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/tulane.png"
+            },
+            {
+              "idTeam": "136967",
+              "strTeam": "Tulsa",
+              "strTeamAlternate": "Tulsa Golden Hurricane",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/tulsa.png"
+            },
+            {
+              "idTeam": "136169",
+              "strTeam": "UAB",
+              "strTeamAlternate": "UAB Blazers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/uab.png"
+            },
+            {
+              "idTeam": "137006",
+              "strTeam": "Delaware",
+              "strTeamAlternate": "Delaware Blue Hens",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/delaware.png"
+            },
+            {
+              "idTeam": "136886",
+              "strTeam": "FIU",
+              "strTeamAlternate": "FIU Panthers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/fiu.png"
+            },
+            {
+              "idTeam": "137033",
+              "strTeam": "Jacksonville State",
+              "strTeamAlternate": "Jacksonville State Gamecocks",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/jacksonville-state.png"
+            },
+            {
+              "idTeam": "137035",
+              "strTeam": "Kennesaw State",
+              "strTeamAlternate": "Kennesaw State Owls",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/kennesaw-state.png"
+            },
+            {
+              "idTeam": "136904",
+              "strTeam": "Liberty",
+              "strTeamAlternate": "Liberty Flames",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/liberty.png"
+            },
+            {
+              "idTeam": "136906",
+              "strTeam": "Louisiana Tech",
+              "strTeamAlternate": "Louisiana Tech Bulldogs",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/louisiana-tech.png"
+            },
+            {
+              "idTeam": "136917",
+              "strTeam": "Middle Tennessee",
+              "strTeamAlternate": "Middle Tennessee Blue Raiders",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/middle-tennessee.png"
+            },
+            {
+              "idTeam": "137044",
+              "strTeam": "Missouri State",
+              "strTeamAlternate": "Missouri State Bears",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/missouri-state.png"
+            },
+            {
+              "idTeam": "136927",
+              "strTeam": "New Mexico State",
+              "strTeamAlternate": "New Mexico State Aggies",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/new-mexico-state.png"
+            },
+            {
+              "idTeam": "136962",
+              "strTeam": "UTEP",
+              "strTeamAlternate": "UTEP Miners",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/utep.png"
+            },
+            {
+              "idTeam": "136977",
+              "strTeam": "Western Kentucky",
+              "strTeamAlternate": "Western Kentucky Hilltoppers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/western-kentucky.png"
+            },
+            {
+              "idTeam": "136167",
+              "strTeam": "Akron",
+              "strTeamAlternate": "Akron Zips",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/akron.png"
+            },
+            {
+              "idTeam": "136865",
+              "strTeam": "Ball State",
+              "strTeamAlternate": "Ball State Cardinals",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/ball-state.png"
+            },
+            {
+              "idTeam": "136870",
+              "strTeam": "Buffalo",
+              "strTeamAlternate": "Buffalo Bulls",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/buffalo.png"
+            },
+            {
+              "idTeam": "136875",
+              "strTeam": "Central Michigan",
+              "strTeamAlternate": "Central Michigan Chippewas",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/central-michigan.png"
+            },
+            {
+              "idTeam": "136884",
+              "strTeam": "Eastern Michigan",
+              "strTeamAlternate": "Eastern Michigan Eagles",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/eastern-michigan.png"
+            },
+            {
+              "idTeam": "136902",
+              "strTeam": "Kent State",
+              "strTeamAlternate": "Kent State Golden Flashes",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/kent-state.png"
+            },
+            {
+              "idTeam": "136931",
+              "strTeam": "Northern Illinois",
+              "strTeamAlternate": "Northern Illinois Huskies",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/northern-illinois.png"
+            },
+            {
+              "idTeam": "136933",
+              "strTeam": "Ohio",
+              "strTeamAlternate": "Ohio Bobcats",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/ohio.png"
+            },
+            {
+              "idTeam": "136894",
+              "strTeam": "Hawaii",
+              "strTeamAlternate": "Hawaii Rainbow Warriors, Hawai'i",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/hawaii.png"
+            },
+            {
+              "idTeam": "136924",
+              "strTeam": "Nevada",
+              "strTeamAlternate": "Nevada Wolf Pack",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/nevada.png"
+            },
+            {
+              "idTeam": "136926",
+              "strTeam": "New Mexico",
+              "strTeamAlternate": "New Mexico Lobos",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/new-mexico.png"
+            },
+            {
+              "idTeam": "136946",
+              "strTeam": "San Jose State",
+              "strTeamAlternate": "San Jose State Spartans",
+              "strTeamShort": "SJSU",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/san-jose-state.png"
+            },
+            {
+              "idTeam": "136925",
+              "strTeam": "UNLV",
+              "strTeamAlternate": "UNLV Rebels",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/unlv.png"
+            },
+            {
+              "idTeam": "136980",
+              "strTeam": "Wyoming",
+              "strTeamAlternate": "Wyoming Cowboys",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/wyoming.png"
+            },
+            {
+              "idTeam": "136170",
+              "strTeam": "Appalachian State",
+              "strTeamAlternate": "Appalachian State Mountaineers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/appalachian-state.png"
+            },
+            {
+              "idTeam": "136174",
+              "strTeam": "Arkansas State",
+              "strTeamAlternate": "Arkansas State Red Wolves",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/arkansas-state.png"
+            },
+            {
+              "idTeam": "136879",
+              "strTeam": "Coastal Carolina",
+              "strTeamAlternate": "Coastal Carolina Chanticleers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/coastal-carolina.png"
+            },
+            {
+              "idTeam": "136891",
+              "strTeam": "Georgia Southern",
+              "strTeamAlternate": "Georgia Southern Eagles",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/georgia-southern.png"
+            },
+            {
+              "idTeam": "136892",
+              "strTeam": "Georgia State",
+              "strTeamAlternate": "Georgia State Panthers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/georgia-state.png"
+            },
+            {
+              "idTeam": "137034",
+              "strTeam": "James Madison",
+              "strTeamAlternate": "James Madison Dukes",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/james-madison.png"
+            },
+            {
+              "idTeam": "136907",
+              "strTeam": "Louisiana",
+              "strTeamAlternate": "Louisiana Ragin' Cajuns, Louisiana Lafayette, UL Lafayette",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/louisiana.png"
+            },
+            {
+              "idTeam": "136909",
+              "strTeam": "Marshall",
+              "strTeamAlternate": "Marshall Thundering Herd",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/marshall.png"
+            },
+            {
+              "idTeam": "136937",
+              "strTeam": "Old Dominion",
+              "strTeamAlternate": "Old Dominion Monarchs",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/old-dominion.png"
+            },
+            {
+              "idTeam": "136947",
+              "strTeam": "South Alabama",
+              "strTeamAlternate": "South Alabama Jaguars",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/south-alabama.png"
+            },
+            {
+              "idTeam": "136952",
+              "strTeam": "Southern Miss",
+              "strTeamAlternate": "Southern Miss Golden Eagles",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/southern-miss.png"
+            },
+            {
+              "idTeam": "136965",
+              "strTeam": "Troy",
+              "strTeamAlternate": "Troy Trojans",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/troy.png"
+            },
+            {
+              "idTeam": "136882",
+              "strTeam": "UConn",
+              "strTeamAlternate": "UConn Huskies, Connecticut",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/uconn.png"
+            },
+            {
+              "idTeam": "136921",
+              "strTeam": "Missouri",
+              "strTeamAlternate": "Missouri Tigers",
+              "strTeamShort": "MIZ",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/missouri.png"
+            },
+            {
+              "idTeam": "136935",
+              "strTeam": "Oklahoma",
+              "strTeamAlternate": "Oklahoma Sooners",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/oklahoma.png"
+            },
+            {
+              "idTeam": "136948",
+              "strTeam": "South Carolina",
+              "strTeamAlternate": "South Carolina Gamecocks",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/south-carolina.png"
+            },
+            {
+              "idTeam": "136958",
+              "strTeam": "Texas",
+              "strTeamAlternate": "Texas Longhorns",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/texas.png"
+            },
+            {
+              "idTeam": "136959",
+              "strTeam": "Texas A and M",
+              "strTeamAlternate": "Texas A&M Aggies, Texas A and M",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/texas-a-and-m.png"
+            },
+            {
+              "idTeam": "136970",
+              "strTeam": "Vanderbilt",
+              "strTeamAlternate": "Vanderbilt Commodores",
+              "strTeamShort": "VAN",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/vanderbilt.png"
+            },
+            {
+              "idTeam": "136916",
+              "strTeam": "Michigan State",
+              "strTeamAlternate": "Michigan State Spartans",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/michigan-state.png"
+            },
+            {
+              "idTeam": "136934",
+              "strTeam": "Ohio State",
+              "strTeamAlternate": "Ohio State Buckeyes",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/ohio-state.png"
+            },
+            {
+              "idTeam": "136940",
+              "strTeam": "Penn State",
+              "strTeamAlternate": "Penn State Nittany Lions",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/penn-state.png"
+            },
+            {
+              "idTeam": "136979",
+              "strTeam": "Wisconsin",
+              "strTeamAlternate": "Wisconsin Badgers",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/wisconsin.png"
+            },
+            {
+              "idTeam": "136868",
+              "strTeam": "Boston College",
+              "strTeamAlternate": "Boston College Eagles",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/boston-college.png"
+            },
+            {
+              "idTeam": "136928",
+              "strTeam": "North Carolina",
+              "strTeamAlternate": "North Carolina Tar Heels",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/north-carolina.png"
+            },
+            {
+              "idTeam": "136954",
+              "strTeam": "Syracuse",
+              "strTeamAlternate": "Syracuse Orange",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/syracuse.png"
+            },
+            {
+              "idTeam": "136961",
+              "strTeam": "Texas Tech",
+              "strTeamAlternate": "Texas Tech Red Raiders",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/texas-tech.png"
+            },
+            {
+              "idTeam": "136867",
+              "strTeam": "Boise State",
+              "strTeamAlternate": "Boise State Broncos",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/boise-state.png"
+            },
+            {
+              "idTeam": "136963",
+              "strTeam": "UTSA",
+              "strTeamAlternate": "UTSA Roadrunners",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/utsa.png"
+            },
+            {
+              "idTeam": "136869",
+              "strTeam": "Bowling Green",
+              "strTeamAlternate": "Bowling Green Falcons",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/bowling-green.png"
+            },
+            {
+              "idTeam": "136914",
+              "strTeam": "Miami (OH)",
+              "strTeamAlternate": "Miami (OH) RedHawks, Miami Ohio, Miami University",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/miami-oh.png"
+            },
+            {
+              "idTeam": "136964",
+              "strTeam": "Toledo",
+              "strTeamAlternate": "Toledo Rockets",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/toledo.png"
+            },
+            {
+              "idTeam": "136978",
+              "strTeam": "Western Michigan",
+              "strTeamAlternate": "Western Michigan Broncos",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/western-michigan.png"
+            },
+            {
+              "idTeam": "137105",
+              "strTeam": "Louisiana-Monroe",
+              "strTeamAlternate": "Louisiana Monroe Warhawks, UL Monroe, ULM",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/louisiana-monroe.png"
+            },
+            {
+              "idTeam": "136913",
+              "strTeam": "Miami (FL)",
+              "strTeamAlternate": "Miami Hurricanes",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/miami-fl.png"
+            },
+            {
+              "idTeam": "137072",
+              "strTeam": "Sam Houston State",
+              "strTeamAlternate": "Sam Houston Bearkats",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/sam-houston-state.png"
+            },
+            {
+              "idTeam": "136911",
+              "strTeam": "UMass",
+              "strTeamAlternate": "Massachusetts Minutemen, UMass",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/umass.png"
+            },
+            {
+              "idTeam": "136172",
+              "strTeam": "Arizona State",
+              "strTeamAlternate": "Arizona State Sun Devils",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/arizona-state.png"
+            },
+            {
+              "idTeam": "136246",
+              "strTeam": "Notre Dame",
+              "strTeamAlternate": "Notre Dame Fighting Irish",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/notre-dame.png"
+            },
+            {
+              "idTeam": "136166",
+              "strTeam": "Air Force",
+              "strTeamAlternate": "Air Force Falcons",
+              "strTeamShort": "",
+              "strLeague": "NCAA Division 1",
+              "strSport": "American Football",
+              "strBadge": "american-football/ncaa-division-1/teams/air-force.png"
             }
           ]
         }

@@ -21,6 +21,42 @@ field names and values that this app's resolver will actually match.
 
 ## 1. Why this repo exists
 
+### Current primary consumer — the multiplatform app
+
+The library's primary consumer today is the Kotlin Multiplatform app (Android + desktop).
+Its `TeamLogoMatcher` / `RemoteTeamLogoLibrary` (in `shared/.../logos/team-logos.kt`)
+uses exactly two endpoints, in this order per team name:
+
+| # | Endpoint | Purpose |
+|---|---|---|
+| 1 | `https://raw.githubusercontent.com/LosLonelyDevs/sportsdb-icon-library/main/catalog.json` | fetched once per process, parsed into slug→path aliases |
+| 2 | `https://raw.githubusercontent.com/LosLonelyDevs/sportsdb-icon-library/main/<strBadge>` | direct PNG load (Coil-cached) |
+| 3 | TheSportsDB `searchteams.php?t=<name>` (key `123`) | runtime fallback only when 1–2 miss |
+
+Payload rules that consumer imposes on `catalog.json` (they differ from the legacy web
+resolver described below — where they conflict, **these win**):
+
+- **Only `/teams/*.png` paths are consumed.** League badges and sport icons are ignored
+  by this consumer entirely (still ship them for the legacy web path and the future).
+- **Fields read per team:** `strTeam`, `strTeamShort`, `strTeamAlternate`, `strBadge`.
+  A team's `strSport` / `strLeague` are **ignored** — there is **no sport or league gate**;
+  matching is purely name→slug based across the whole catalog.
+- **`strTeamAlternate` IS split on commas** — each comma-separated token becomes its own
+  alias. Rich comma lists are *good* here (see §5 for the legacy caveat).
+- **The badge FILENAME is the team's identity.** The same team seeded in two leagues must
+  reuse one filename; two *different* teams must never share a filename anywhere in the
+  tree (`badgeIdentity()` collapses on `substringAfterLast('/')`).
+- **Ambiguous aliases self-destruct.** A name slug claimed by two different badge
+  filenames resolves for neither. Filename slugs are ground truth and always win over
+  aliases.
+- Matching order: exact slug → noise-stripped slug (`fc/cf/sc/afc/ac/cd/club/de` dropped)
+  → unique containment match (≥5 chars).
+- Lookup inputs are the event payload's `teamAName` / `teamBName` strings. Non-versus
+  events (where `teamA == teamB`) collapse to the event name and use the payload's own
+  logo — they never hit this library.
+
+### Legacy web resolver
+
 `src/services/logoResolver.js` resolves a logo for three entity kinds — `sport`, `league`,
 `team` — from an event's text labels. It tries sources in a fixed order, and the icon
 library is the first *remote* source:
@@ -32,7 +68,7 @@ library is the first *remote* source:
 | 3 | **`sportsdb-icon-library` → `catalog.json`** | **team, league** | **exact** |
 | 4 | `src/data/sportsdb-logo-catalog.json` (bundled) | sport, league, team | fuzzy (Fuse.js) |
 | 5 | TheSportsDB live API | sport, league, team | fuzzy (Fuse.js) |
-| 6 | `fallbackUrl` from the event feed | any | n/a |
+| 6 | `fallbackUrl` from the event payload | any | n/a |
 
 Two things follow from this table, and they drive every rule in this document:
 
@@ -95,7 +131,7 @@ guessed. Use these exact strings.
 
 | App label | `strSport` to use | Directory slug | Priority | Notes |
 |---|---|---|---|---|
-| Cricket | `Cricket` | `cricket/` | **high** | feeds emit this often |
+| Cricket | `Cricket` | `cricket/` | **high** | sources emit this often |
 | Combat | `Fighting` | `fighting/` | **high** | name differs — app already maps it |
 | Baseball | `Baseball` | `baseball/` | medium | |
 | Motorsport | `Motorsport` | `motorsport/` | medium | league badge only — see §3.2 |
@@ -275,7 +311,7 @@ same key and do **not** need separate aliases:
 
 What is **not** free — and is exactly what aliases are for — is any change in *words*:
 
-| Feed says | Canonical | Free? | Action |
+| Source says | Canonical | Free? | Action |
 |---|---|---|---|
 | `Man Utd` | `Manchester United` | ✗ | add to `strTeamAlternate` |
 | `Spurs` | `Tottenham Hotspur` | ✗ | add alias |
@@ -284,13 +320,13 @@ What is **not** free — and is exactly what aliases are for — is any change i
 | `LAFC` | `Los Angeles Football Club` | ✗ | add alias |
 | `Wolves` | `Wolverhampton Wanderers` | ✗ | add alias |
 
-> `strTeamAlternate` and `strLeagueAlternate` are read as **single strings**, and the
-> resolver puts each in the alias list whole — it does **not** split on commas. Writing
-> `"Man Utd, Man United"` creates one useless alias `manutdmanunited`. There are only two
-> alias slots per team (`strTeamAlternate`, `strTeamShort`), so spend them on the two
-> highest-value variants and push the rest into this app's `TEAM_ALIASES` map (§9).
-> (For contrast, the *fuzzy* sources at steps 4–5 do split `strLeagueAlternate` on
-> commas — so comma lists are only harmful here, in the exact-match path.)
+> **Comma-separated alias lists in `strTeamAlternate` are the convention** — the current
+> multiplatform consumer (§1) splits on commas, so `"Man Utd, Man United, MUFC"` yields
+> three working aliases. Order them highest-value first. One caveat: the *legacy web*
+> resolver's exact-match path reads `strTeamAlternate` whole (unsplit), so a comma list
+> is inert there — keep `strTeamShort` a **single** token (the most valuable short form,
+> e.g. the code the payloads actually use) so at least one alias survives in both
+> consumers.
 
 > 🚨 **Do not act on the paragraph above by removing commas from `catalog.json`.**
 > Another consumer of this repo *does* split `strTeamAlternate` on commas, and **92 of the
@@ -319,16 +355,13 @@ What is **not** free — and is exactly what aliases are for — is any change i
 
 ### Feed vocabulary you are matching against
 
-Names come from live stream feeds (PlayZ, SportzX, LivXow), not from TheSportsDB, so they
-are messy and abbreviated. Before inventing aliases, sample the real strings:
+Lookup names do not come from TheSportsDB — they arrive from various third-party
+sources, each with its own naming conventions, so expect messy, abbreviated, and
+inconsistent strings. Aliases exist to harden matching against that variety. Before
+inventing aliases, sample the real strings those sources actually emit.
 
-```bash
-# in this repo — see what the feeds actually emit
-grep -rn "normalizePlayZEvent\|normalizeSportzXEvent" src/services/api.js
-```
-
-Priority order for aliases: whatever the **feed** calls the team first, the official name
-second.
+Priority order for aliases: whatever third-party sources commonly call the team first,
+the official name second.
 
 ---
 
@@ -383,7 +416,7 @@ American Football lookup.
 Use TheSportsDB's `strLeague` verbatim, including its quirky prefixes — e.g.
 `American Major League Soccer` (not `MLS`), `Spanish La Liga` (not `La Liga`),
 `English Premier League`, `Mexican Primera League`. Then put the short/common form the
-feeds actually use in `strLeagueAlternate` (`MLS`, `La Liga`, `EPL`, `Liga MX`).
+third-party sources actually use in `strLeagueAlternate` (`MLS`, `La Liga`, `EPL`, `Liga MX`).
 
 ---
 
@@ -401,7 +434,7 @@ if (normalizedSport && candidate.sportName &&
 its **domestic** league, while an event's league is the **competition** it is playing in,
 and those routinely differ.
 
-- Real Madrid in a Champions League fixture → feed league `UEFA Champions League`, but the
+- Real Madrid in a Champions League fixture → event league label `UEFA Champions League`, but the
   team is nested under `Spanish La Liga`. This now resolves correctly.
 
 This mirrors the escape hatch the fuzzy path already had via `hasExactNameMatch` — an
@@ -460,8 +493,8 @@ The NFL team **Arizona Cardinals**, as it exists in the library today:
 {
   "idTeam": "134946",
   "strTeam": "Arizona Cardinals",          // canonical name → drives the slug
-  "strTeamAlternate": "Cardinals",         // alias: feeds often drop the city
-  "strTeamShort": "ARI",                   // alias: feeds often use the 3-letter code
+  "strTeamAlternate": "Cardinals",         // alias: sources often drop the city
+  "strTeamShort": "ARI",                   // alias: sources often use the 3-letter code
   "strLeague": "NFL",
   "strSport": "American Football",
   "strBadge": "american-football/nfl/teams/arizona-cardinals.png"
@@ -500,6 +533,10 @@ Rules:
 - Square-ish, **≥128px**, ideally 256px. These render small (card logos) but on HiDPI.
 - Keep files lean — the whole repo is served over `raw.githubusercontent.com` with no CDN
   in front. Run PNGs through `oxipng`/`pngquant` before committing.
+- **Filenames are team identity for the multiplatform consumer (§1).** Never give two
+  different teams the same `<team-slug>.png` filename anywhere in the tree — check
+  `git ls-files '*/teams/*.png' | xargs -n1 basename | sort | uniq -d` before committing.
+  (Same team in two leagues sharing one filename is fine and expected.)
 - **`strBadge` path must exactly equal the committed file path**, including case. Raw
   GitHub is case-sensitive; a `Teams/` vs `teams/` mismatch 404s and the app falls back
   silently, which is painful to debug.
@@ -572,7 +609,7 @@ with no leading slash.**
 
 Not every naming problem should be solved in the library. Add to `src/services/logoResolver.js`:
 
-- `TEAM_ALIASES` / `LEAGUE_ALIASES` / `SPORT_ALIASES` — for feed-specific abbreviations
+- `TEAM_ALIASES` / `LEAGUE_ALIASES` / `SPORT_ALIASES` — for source-specific abbreviations
   beyond the two alias slots the catalog gives you.
 - `NATIONAL_TEAM_BADGES` — national teams; the icon library has **no** national-team
   badges today, and a bare `France` would otherwise fuzzy-match a club.
@@ -616,7 +653,7 @@ jq -r '.sports[].leagues[] as $l | $l.teams[]? |
 Then verify end-to-end against this app:
 
 ```bash
-# in gayfy_web
+# in the consuming app repo
 npm run lint
 npm test
 npm run dev     # browse an event in the league you added; the badge should render
